@@ -34,8 +34,12 @@ public class movement : NetworkBehaviour {
 	private float tempDrag;
 	private float tempAcceleration;
 	private float tempMinSpeed;
-	private float tempMaxSpeed;
-    
+
+    [SyncVar(hook = nameof(onBoostChange))]
+	bool boosting = false;
+	public bool localplayer;
+
+	
     // Start is called before the first frame update
     void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -48,6 +52,7 @@ public class movement : NetworkBehaviour {
 		tempDrag = drag;
 		tempAcceleration = acceleration;
 		tempMinSpeed = minSpeed;
+		localplayer = isLocalPlayer;
 
 		if (!isLocalPlayer) {
 			cameraParent.gameObject.SetActive(false);
@@ -62,13 +67,21 @@ public class movement : NetworkBehaviour {
 	}
 
 	void Update() {
-	if (!isLocalPlayer) { return; }
-		float speedUp = Input.GetAxis("SpeedUp");
-        float h = Input.GetAxis("Horizontal");
+
+		//Items here will run on all instances of the player 
 		
-		tempMaxSpeed = maxSpeed;
+		
+		trail.GetComponent<TrailRenderer>().emitting = boosting;
 
 		
+		
+		//Past this point is local player only
+		if (!isLocalPlayer) { return; }
+        
+		float h = Input.GetAxis("Horizontal");
+		
+		
+		//Handle the screenspace turning
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + (h * turnSpeed), 0);
 		
 		if (Input.GetButtonDown("Boost")) {
@@ -78,6 +91,7 @@ public class movement : NetworkBehaviour {
 		if (Input.GetButtonUp("Boost")) {
 			Boost(false);
 		}
+
 
 		if (Input.GetButtonDown("Break")) {
 			Break(true);
@@ -101,11 +115,9 @@ public class movement : NetworkBehaviour {
         velocity = velocity - (tempDrag * Time.deltaTime);
         
         //Clamp velocity
-        velocity = Mathf.Min(tempMaxSpeed, Mathf.Max(velocity, tempMinSpeed));
+        velocity = Mathf.Min(maxSpeed, Mathf.Max(velocity, tempMinSpeed));
 		
 		DOVirtual.Float(gameCam.m_Lens.FieldOfView, camZoom, 1, SetCameraFOV);
-
-		Debug.Log(tempMaxSpeed + " - " + tempDrag);
 	}
 
 
@@ -121,6 +133,7 @@ public class movement : NetworkBehaviour {
 	void SetCameraZoom(float zoom) {
 		camZoom = zoom;
 	}
+	
 	void SetCameraFOV(float zoom) {
 		gameCam.m_Lens.FieldOfView = zoom;
 	}
@@ -139,17 +152,11 @@ public class movement : NetworkBehaviour {
 
 
 	void Boost(bool state) {
+		boosting = state;
 		if (state) {
 			gameObject.GetComponentInChildren<CinemachineImpulseSource>().GenerateImpulse();
-			trail.Play();
-			circle.Play();
-		}
-		else {
-			trail.Stop();
-			circle.Stop();
 		}
 
-		trail.GetComponent<TrailRenderer>().emitting = state;
 
 		float origFov = state ? 40 : 55;
 		float endFov = state ? 55 : 40;
@@ -167,10 +174,21 @@ public class movement : NetworkBehaviour {
 		pvel.z = starsVel;
 		tempDrag = state ? drag / 5 : drag;
 		tempAcceleration = state ? acceleration * 5 : acceleration;
-		//tempMaxSpeed = state ? maxSpeed * 2 : maxSpeed;
 
 		
 		SetCameraZoom(zoom);
+	}
+
+	void onBoostChange(bool _old, bool _new) {
+		boosting = _new;
+		if (_new) {
+			trail.Play();
+			circle.Play();
+		}
+		else {
+			trail.Stop();
+			circle.Stop();
+		}
 	}
 
 	void Break(bool state) {

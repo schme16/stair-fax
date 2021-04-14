@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55e63e61-f48d-4404-8569-335833424372" name="Default Changelist" comment="" />
+    <list default="true" id="55e63e61-f48d-4404-8569-335833424372" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.stair-fax-mp/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.stair-fax-mp/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.stair-fax-mp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.stair-fax-mp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/movement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -21,6 +33,7 @@
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qup97hbinFedFD6P7Dv7xI9LTZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -70,7 +83,7 @@
       <updated>1617939177351</updated>
       <workItem from="1617939199996" duration="13030000" />
       <workItem from="1618190889186" duration="18731000" />
-      <workItem from="1618277742445" duration="3360000" />
+      <workItem from="1618277742445" duration="6218000" />
     </task>
     <servers />
   </component>
@@ -79,7 +92,50 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/movement.cs</url>
+          <line>136</line>
+          <properties documentPath="D:\sync\www\personal\games\2021\stair-fax-mp\Assets\movement.cs" initialLine="135" containingFunctionPresentation="method 'SetCameraFOV'">
+            <startOffsets>
+              <option value="3367" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3368" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/movement.cs</url>
+          <line>148</line>
+          <properties documentPath="D:\sync\www\personal\games\2021\stair-fax-mp\Assets\movement.cs" initialLine="148" containingFunctionPresentation="method 'Chromatic'">
+            <startOffsets>
+              <option value="3616" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3617" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

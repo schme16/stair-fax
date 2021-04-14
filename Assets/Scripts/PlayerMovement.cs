@@ -18,14 +18,15 @@ public class PlayerMovement : NetworkBehaviour {
 	[Space] [Header("Public References")] public Transform aimTarget;
 	public CinemachineDollyCart dolly;
 	public Transform cameraParent;
-
+	private bool localPlayer;
 	
 	void Start() {
 		playerModel = transform.GetChild(0);
+		localPlayer = transform.parent.GetComponent<movement>().localplayer;
 	}
 
 	void Update() {
-		if (!isLocalPlayer) { return; }
+		if (!localPlayer) { return; }
 		float h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Mouse X");
 		float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
 
